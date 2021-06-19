@@ -22,7 +22,7 @@
 
 ### Praca z API
 
-- Curl & [httpie](https://httpie.io/) - szybkie sprawdzenie lub proste skrypty w bashu (czasami można się pokusić o proste checki z pomocą [BATS](https://github.com/sstephenson/bats)):
+- Curl & [httpie](https://httpie.io/) - szybkie sprawdzenie lub proste skrypty w bashu (czasami można się pokusić o proste checki z pomocą [Bats-core](https://github.com/bats-core/bats-core)):
 
   ```bash
   $ curl -X POST -H "Content-Type: application/json" \
@@ -107,7 +107,7 @@
   # result.raise_for_status()
 
 
-  print("Status {0}".format(result.status_code))
+  print("Status: {0}".format(result.status_code))
   print("Result: {0}".format(result.json()))
   ```
 
