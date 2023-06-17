@@ -3,26 +3,27 @@
 ### Warto wiedzieć:
 
 - Kody HTTP, minimum znać, patrz na [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status):
-  - Successful responses - 2xx: 200, 201
-  - Redirects - 3xx: 301, 302
-  - Client errors - 4xx: 400, 401, 403, 404, 405, 422, 429
-  - Server errors - 5xx: 500, 502, 503 i 504
+  - Successful responses - 2xx: 200, 201,
+  - Redirects - 3xx: 301, 302,
+  - Client errors - 4xx: 400, 401, 403, 404, 405, 422, 429,
+  - Server errors - 5xx: 500, 502, 503 i 504.
 
 - Metody HTTP, podstawowe (więcej na [MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)):
-  - POST
-  - GET
-  - PUT
-  - DELETE
+  - POST,
+  - GET,
+  - PUT,
+  - DELETE.
 
 - Co to jest REST / REST API? Jakie zasady powinno spełniać API? Na pewno bym zaczął od:
-  - poleganie na HTTP w sposobie działania
-  - bezstanowość - każdy request zawiera całą informację o stanie.
+  - poleganie na HTTP w sposobie działania,
+  - bezstanowość - każdy request zawiera całą informację o stanie,
+  - ścieżka, semantyczna/logiczna z nazwą zasobu, np: `companies/1/employees/2`.
 
 - [Dodatkowe] Przeczytaj co to jest GraphQL.
 
 ### Praca z API
 
-- Curl & [httpie](https://httpie.io/) - szybkie sprawdzenie lub proste skrypty w bashu (czasami można się pokusić o proste checki z pomocą [Bats-core](https://github.com/bats-core/bats-core)):
+- [Curl](https://curl.se/) & [httpie](https://httpie.io/) - szybkie sprawdzenie lub proste skrypty w bashu (czasami można się pokusić o proste checki z pomocą [Bats-core](https://github.com/bats-core/bats-core)):
 
   ```bash
   $ curl -X POST -H "Content-Type: application/json" \
@@ -100,12 +101,12 @@
   ```python
   import requests
 
+  # pamietaj o timeout
   srv = "https://services.odata.org/v4/TripPinServiceRW/People('russellwhyte')"
   result = requests.get(srv)
 
   # moglibyśmy przerwać żądanie
   # result.raise_for_status()
-
 
   print("Status: {0}".format(result.status_code))
   print("Result: {0}".format(result.json()))
@@ -113,8 +114,8 @@
 
 - unittesty flask - patrz twoje testy w test_views.py na podstawie [test_views w projekcie do ćwiczeń](https://github.com/wojciech11/se_hello_printer_app/blob/master/test/test_views.py)
 
-  - sprawdź czy `status_code` jest jaki oczekujesz
-  - zawsze parsujemy wynik za pomocą odpowiedniej biblioteki, np., json czy [lxml](https://lxml.de/tutorial.html).
+  - sprawdź czy `status_code` jest jaki oczekujesz;
+  - zawsze parsujemy wynik za pomocą odpowiedniej biblioteki, np., json czy [lxml](https://lxml.de/tutorial.html);
   - jeśli JSON to kapitalnie sprawdza się również biblioteka jmespath (jak XPATH ale dla JSONA!), np:
 
     ```python
@@ -132,7 +133,7 @@
 
 - `requests` i [behave](https://behave.readthedocs.io/en/stable/) lub Robot - dla czytelności naszych intencji możemy wykorzystać BDD do lepszego opisania naszych testów, patrz instrukcja Python część 2 z BDD.
 
-- postman - manualne testy, większość firm w których pracowałem wykorzystywały to do manualnego testowania i współdzielenie know-how jak korzystać z danych endpointów. Warto zacząć skupić się na [building requests](https://learning.postman.com/docs/sending-requests/requests/), można szybko również spojrzeć na pozostałe tematy w [ich tutorialu](https://learning.postman.com/docs/getting-started/introduction/).
+- [postman](https://www.postman.com/) lub [insomnia](https://insomnia.rest/) - manualne testy, większość firm w których pracowałem wykorzystywały to do manualnego testowania i współdzielenie know-how jak korzystać z danych endpointów. Warto zacząć skupić się na [building requests](https://learning.postman.com/docs/sending-requests/requests/), można szybko również spojrzeć na pozostałe tematy w [ich tutorialu](https://learning.postman.com/docs/getting-started/introduction/).
 
 - zewnętrzne serwisy mogą być wolne lub możemy mieć problemy z połączeniem z nimi, więc warto zawsze określać timeouty, gdy wykonujemy zewnętrze requesty (patrz [requests timeouts](https://docs.python-requests.org/en/master/user/quickstart/#timeouts)):
 
@@ -144,4 +145,4 @@
 
 ### Dodatkowe
 
-- Zapoznaj się z zadaniami dotyczącymi perf testing za pomocą [locust.io](https://locust.io/): https://github.com/wojciech11/se_perf_testing_basics
+- Zapoznaj się z zadaniami dotyczącymi perf testing za pomocą [locust.io](https://locust.io/): [github.com/wojciech11/se_perf_testing_basics](https://github.com/wojciech11/se_perf_testing_basics).
